@@ -3,60 +3,112 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>YOUR NAME — Portfolio</title>
-  <meta name="description" content="FPGA & digital design projects: RV32I pipelined core, verification, and more." />
+  <title>Kai Nguyen — FPGA / Digital Design</title>
+  <meta name="description" content="RV32I 5-stage pipelined core on Basys3 with forwarding, load-use stall, and branch flush. 50 MHz timing met; CPIadj ≈ 1.00.">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="RV32I 5-Stage Pipeline — Kai Nguyen">
+  <meta property="og:description" content="RISC-V RV32I 5-stage pipeline running on Basys3 @ 50 MHz. Hazards handled. Waveforms + board bring-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_0to150ns.png">
+  <meta property="og:url" content="https://kainct.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+
   <style>
-    :root { --bg:#0b0d12; --panel:#12151c; --text:#e6eaf2; --muted:#93a1b1; --brand:#7aa2ff; --line:#22242c; }
+    :root { --bg:#0b0d12; --panel:#12151c; --text:#e6eaf2; --muted:#93a1b1; --brand:#7aa2ff; --line:#22242c; --ok:#67e8a5; }
     *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:960px;margin:0 auto;padding:72px 20px}
-    h1{margin:0 0 6px;font-size:32px}
+    .wrap{max-width:1000px;margin:0 auto;padding:72px 20px}
+    header h1{margin:0 0 6px;font-size:32px}
+    header p{margin:0 0 20px}
     h2{margin:28px 0 12px;font-size:20px}
     .muted{color:var(--muted)}
     .grid{display:grid;gap:16px}
-    @media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+    @media(min-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .card img{width:100%;height:160px;object-fit:cover;border-bottom:1px solid var(--line)}
+    .card .body{padding:16px}
     a{color:var(--brand);text-decoration:none}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+    .badge{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#0f1220}
+    .btns{display:flex;gap:10px;flex-wrap:wrap}
     .btn{display:inline-block;background:var(--brand);color:var(--bg);padding:10px 14px;border-radius:10px;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .thumbs img{width:100%;height:120px;object-fit:cover;border:1px solid var(--line);border-radius:10px}
     .footer{margin-top:28px;font-size:14px}
   </style>
 </head>
 <body>
   <main class="wrap">
     <header>
-      <h1>YOUR NAME</h1>
+      <h1>Kai Nguyen</h1>
       <p class="muted">FPGA / Digital Design — I build RISC-V cores and verification benches.</p>
     </header>
 
     <section>
-      <h2>Projects</h2>
+      <h2>Featured Project</h2>
       <div class="grid">
         <article class="card">
-          <h3>RV32I 5-Stage Pipeline</h3>
-          <p class="muted">Forwarding, load-use stall, branch flush. 50 MHz on Basys3; CPI_adj 1.00.</p>
-          <p><a class="btn" href="https://github.com/YOUR_GITHUB/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a></p>
+          <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_0to150ns.png" alt="RV32I pipeline waveform 0–150 ns">
+          <div class="body">
+            <h3 style="margin:0 0 4px">RV32I 5-Stage Pipeline (Basys3)</h3>
+            <p class="muted" style="margin:6px 0 0">
+              Forwarding, load-use stall, branch/jump flush. Runs on Basys3 @ 50&nbsp;MHz; CPI<sub>adj</sub> ≈ 1.00. LEDs mirror `{ALUResultM, WriteDataM}`.
+            </p>
+
+            <div class="badges">
+              <span class="badge">RV32I</span>
+              <span class="badge">5-stage IF/ID/EX/MEM/WB</span>
+              <span class="badge">50&nbsp;MHz ✅</span>
+              <span class="badge">Forwarding + Stall/Flush</span>
+            </div>
+
+            <div class="btns">
+              <a class="btn" href="https://github.com/kainct/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a>
+              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#waveform-snapshots" target="_blank" rel="noopener">Waveforms</a>
+              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#fpga-basys3" target="_blank" rel="noopener">Basys3 Bring-Up</a>
+            </div>
+
+            <div class="thumbs">
+              <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_150ns_plus.png" alt="RV32I pipeline waveform 150 ns → end">
+              <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/basys3_run.jpg" alt="Basys3 board running — LEDs show {addr,data}">
+            </div>
+          </div>
         </article>
 
-        <!-- Add more cards as you grow -->
-        <!--
+        <!-- Add more cards as you grow
         <article class="card">
-          <h3>PROJECT TITLE</h3>
-          <p class="muted">One-sentence impact/tech summary.</p>
-          <p><a class="btn" href="https://github.com/YOUR_GITHUB/REPO">View on GitHub</a></p>
+          <img src="IMG_OR_THUMB_URL" alt="Project thumbnail">
+          <div class="body">
+            <h3>PROJECT TITLE</h3>
+            <p class="muted">One-sentence impact/tech summary.</p>
+            <div class="btns">
+              <a class="btn" href="https://github.com/YOUR/REPO">View on GitHub</a>
+            </div>
+          </div>
         </article>
         -->
       </div>
     </section>
 
+    <section>
+      <h2>Results (quick view)</h2>
+      <p class="muted" style="margin-top:-6px">
+        Timing met @ 50&nbsp;MHz (WNS ≈ +11.458 ns). Max Fmax ≈ 117&nbsp;MHz (post-synth). Program writes <strong>25</strong> to <code>mem[100]</code>, confirmed on hardware LEDs.
+      </p>
+    </section>
+
     <section class="footer">
       <p>
         <a href="resume.pdf">Download résumé</a> ·
-        <a href="mailto:YOU@EMAIL.COM">Email</a> ·
+        <a href="mailto:kainct@EXAMPLE.COM">Email</a> ·
         <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a> ·
-        <a href="https://github.com/YOUR_GITHUB">GitHub</a>
+        <a href="https://github.com/kainct">GitHub</a>
       </p>
     </section>
   </main>
 </body>
 </html>
-
