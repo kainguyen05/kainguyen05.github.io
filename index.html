@@ -85,29 +85,39 @@
       <div class="grid">
         <!-- Project Card 1: RV32I (example filled in) -->
         <article class="card">
-          <!-- ✏️ Update image if you host locally -->
-          <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/board/basys_3_run.jpg" alt="RV32I on Basys3">
-          <div class="body">
-            <div>
-              <h3 style="margin:0 0 4px">RV32I 5-Stage Pipeline (Basys3)</h3>
-              <p class="muted" style="margin:6px 0 0">
-                Forwarding, load-use stall, branch/jump flush. Runs on Basys3 @ 50&nbsp;MHz; CPI<sub>adj</sub> ≈ 1.00. LEDs mirror <code>{ALUResultM, WriteDataM}</code>.
-              </p>
-            </div>
-            <div class="badges">
-              <span class="badge">RV32I</span>
-              <span class="badge">5-Stage</span>
-              <span class="badge">50&nbsp;MHz</span>
-              <span class="badge">Hazard Unit</span>
-            </div>
-            <div class="btns">
-              <!-- ✏️ Replace repo link -->
-              <a class="btn" href="https://github.com/kainct/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a>
-              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#waveform-snapshots" target="_blank" rel="noopener">Waveforms</a>
-              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#fpga-basys3" target="_blank" rel="noopener">Bring-Up</a>
-            </div>
-          </div>
-        </article>
+  <!-- 🖼️ Project cover (host locally if possible for faster loads) -->
+  <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/board/basys_3_run.jpg"
+       alt="Basys 3 board running a 5-stage RV32I CPU; LEDs show ALU result and write-back data">
+  <div class="body">
+    <div>
+      <h3 style="margin:0 0 4px">RV32I 5-Stage CPU on Basys&nbsp;3</h3>
+      <p class="muted" style="margin:6px 0 0">
+        Runs at <strong>50&nbsp;MHz</strong> on Basys&nbsp;3. Full forwarding, load-use stall, and branch/jump flush.
+        LEDs mirror <code>{ALUResult_M, WriteData_M}</code> for on-board debug. Average CPI ≈ 1.0 on basic test programs.
+      </p>
+      <!-- Compact spec line (add/adjust numbers if you have them) -->
+      <p class="muted" style="margin:6px 0 0">
+        ISA: RV32I • Stages: IF/ID/EX/MEM/WB • Tooling: Vivado&nbsp;2022.1, ModelSim/Questa
+      </p>
+    </div>
+
+    <div class="badges">
+      <span class="badge">RV32I</span>
+      <span class="badge">5-Stage</span>
+      <span class="badge">50&nbsp;MHz</span>
+      <span class="badge">Hazard Unit</span>
+      <span class="badge">Forwarding</span>
+      <span class="badge">Basys&nbsp;3</span>
+    </div>
+
+    <div class="btns">
+      <a class="btn" href="https://github.com/kainct/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#waveform-snapshots" target="_blank" rel="noopener">Simulation Waveforms</a>
+      <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#fpga-basys3" target="_blank" rel="noopener">Bring-up Diary</a>
+    </div>
+  </div>
+</article>
+
 
         <!-- ===== TEMPLATE: Duplicate this block for more projects =====
         <article class="card">
