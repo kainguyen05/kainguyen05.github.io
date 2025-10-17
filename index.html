@@ -4,111 +4,156 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kai Nguyen — FPGA / Digital Design</title>
-  <meta name="description" content="RV32I 5-stage pipelined core on Basys3 with forwarding, load-use stall, and branch flush. 50 MHz timing met; CPIadj ≈ 1.00.">
+  <meta name="description" content="FPGA & digital design portfolio: RV32I pipelined core, verification, and more.">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="RV32I 5-Stage Pipeline — Kai Nguyen">
-  <meta property="og:description" content="RISC-V RV32I 5-stage pipeline running on Basys3 @ 50 MHz. Hazards handled. Waveforms + board bring-up.">
+  <!-- Social share (update image URLs if you host locally) -->
+  <meta property="og:title" content="Kai Nguyen — FPGA / Digital Design">
+  <meta property="og:description" content="RISC-V RV32I 5-stage pipeline on Basys3 @ 50 MHz. Hazards handled. Waveforms + bring-up.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_0to150ns.png">
   <meta property="og:url" content="https://kainct.github.io/">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
-
   <style>
-    :root { --bg:#0b0d12; --panel:#12151c; --text:#e6eaf2; --muted:#93a1b1; --brand:#7aa2ff; --line:#22242c; --ok:#67e8a5; }
+    :root { --bg:#0b0d12; --panel:#12151c; --text:#e6eaf2; --muted:#93a1b1; --brand:#7aa2ff; --line:#22242c; }
     *{box-sizing:border-box}
     body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--text)}
     .wrap{max-width:1000px;margin:0 auto;padding:72px 20px}
-    header h1{margin:0 0 6px;font-size:32px}
-    header p{margin:0 0 20px}
-    h2{margin:28px 0 12px;font-size:20px}
+    h1{margin:0 0 6px;font-size:32px}
+    h2{margin:28px 0 12px;font-size:22px}
     .muted{color:var(--muted)}
-    .grid{display:grid;gap:16px}
-    @media(min-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-    .card img{width:100%;height:160px;object-fit:cover;border-bottom:1px solid var(--line)}
-    .card .body{padding:16px}
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
+    .linkpill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:#0f1220}
     a{color:var(--brand);text-decoration:none}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
-    .badge{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#0f1220}
+    .badge{display:inline-block;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:4px 6px 0 0;background:#0f1220}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+    /* Projects grid/cards */
+    .grid{display:grid;gap:16px}
+    @media(min-width:840px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+    .card img{width:100%;height:160px;object-fit:cover;border-bottom:1px solid var(--line)}
+    .card .body{padding:16px;display:flex;flex-direction:column;gap:10px}
     .btns{display:flex;gap:10px;flex-wrap:wrap}
     .btn{display:inline-block;background:var(--brand);color:var(--bg);padding:10px 14px;border-radius:10px;font-weight:600}
     .btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}
-    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-    .thumbs img{width:100%;height:120px;object-fit:cover;border:1px solid var(--line);border-radius:10px}
-    .footer{margin-top:28px;font-size:14px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px}
   </style>
 </head>
 <body>
   <main class="wrap">
+    <!-- ===== Header + Top Links ===== -->
     <header>
       <h1>Kai Nguyen</h1>
       <p class="muted">FPGA / Digital Design — I build RISC-V cores and verification benches.</p>
+      <div class="links">
+        <!-- ✏️ REPLACE these 4 links with yours -->
+        <a class="linkpill" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="linkpill" href="mailto:kainct@EXAMPLE.COM">Email</a>
+        <a class="linkpill" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="linkpill" href="https://github.com/kainct" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </header>
 
+    <!-- ===== Skills & Languages ===== -->
     <section>
-      <h2>Featured Project</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_0to150ns.png" alt="RV32I pipeline waveform 0–150 ns">
-          <div class="body">
-            <h3 style="margin:0 0 4px">RV32I 5-Stage Pipeline (Basys3)</h3>
-            <p class="muted" style="margin:6px 0 0">
-              Forwarding, load-use stall, branch/jump flush. Runs on Basys3 @ 50&nbsp;MHz; CPI<sub>adj</sub> ≈ 1.00. LEDs mirror `{ALUResultM, WriteDataM}`.
-            </p>
+      <h2>Skills & Languages</h2>
+      <div class="panel">
+        <div style="margin-bottom:8px"><strong>Hardware Design</strong></div>
+        <span class="badge">SystemVerilog</span>
+        <span class="badge">Verilog</span>
+        <span class="badge">RISC-V (RV32I)</span>
+        <span class="badge">Pipelining (IF/ID/EX/MEM/WB)</span>
+        <span class="badge">Hazards (Fwd/Stall/Flush)</span>
+        <span class="badge">Timing Closure</span>
+        <span class="badge">FPGA (Xilinx 7-Series)</span>
 
-            <div class="badges">
-              <span class="badge">RV32I</span>
-              <span class="badge">5-stage IF/ID/EX/MEM/WB</span>
-              <span class="badge">50&nbsp;MHz ✅</span>
-              <span class="badge">Forwarding + Stall/Flush</span>
-            </div>
+        <div style="margin:14px 0 8px"><strong>Verification</strong></div>
+        <span class="badge">Directed Tests</span>
+        <span class="badge">Assertions</span>
+        <span class="badge">Waveform Debug</span>
+        <span class="badge">CPI / Perf Counters</span>
 
-            <div class="btns">
-              <a class="btn" href="https://github.com/kainct/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a>
-              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#waveform-snapshots" target="_blank" rel="noopener">Waveforms</a>
-              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#fpga-basys3" target="_blank" rel="noopener">Basys3 Bring-Up</a>
-            </div>
+        <div style="margin:14px 0 8px"><strong>Tools</strong></div>
+        <span class="badge">Vivado</span>
+        <span class="badge">XSim</span>
+        <span class="badge">$readmemh</span>
+        <span class="badge">Clocking Wizard</span>
+        <span class="badge">XDC Constraints</span>
+        <span class="badge">Tcl</span>
+        <span class="badge">Git/GitHub</span>
 
-            <div class="thumbs">
-              <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_150ns_plus.png" alt="RV32I pipeline waveform 150 ns → end">
-              <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/basys3_run.jpg" alt="Basys3 board running — LEDs show {addr,data}">
-            </div>
-          </div>
-        </article>
-
-        <!-- Add more cards as you grow
-        <article class="card">
-          <img src="IMG_OR_THUMB_URL" alt="Project thumbnail">
-          <div class="body">
-            <h3>PROJECT TITLE</h3>
-            <p class="muted">One-sentence impact/tech summary.</p>
-            <div class="btns">
-              <a class="btn" href="https://github.com/YOUR/REPO">View on GitHub</a>
-            </div>
-          </div>
-        </article>
-        -->
+        <div style="margin:14px 0 8px"><strong>Programming</strong></div>
+        <span class="badge">C</span>
+        <span class="badge">Python</span>
+        <span class="badge">Bash</span>
       </div>
     </section>
 
+    <!-- ===== Featured Projects ===== -->
     <section>
-      <h2>Results (quick view)</h2>
-      <p class="muted" style="margin-top:-6px">
-        Timing met @ 50&nbsp;MHz (WNS ≈ +11.458 ns). Max Fmax ≈ 117&nbsp;MHz (post-synth). Program writes <strong>25</strong> to <code>mem[100]</code>, confirmed on hardware LEDs.
-      </p>
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <!-- Project Card 1: RV32I (example filled in) -->
+        <article class="card">
+          <!-- ✏️ Update image if you host locally -->
+          <img src="https://raw.githubusercontent.com/kainct/rv32i-pipeline/main/docs/img/waves/pipeline_0to150ns.png" alt="RV32I pipeline waveform">
+          <div class="body">
+            <div>
+              <h3 style="margin:0 0 4px">RV32I 5-Stage Pipeline (Basys3)</h3>
+              <p class="muted" style="margin:6px 0 0">
+                Forwarding, load-use stall, branch/jump flush. Runs on Basys3 @ 50&nbsp;MHz; CPI<sub>adj</sub> ≈ 1.00. LEDs mirror <code>{ALUResultM, WriteDataM}</code>.
+              </p>
+            </div>
+            <div class="badges">
+              <span class="badge">RV32I</span>
+              <span class="badge">5-Stage</span>
+              <span class="badge">50&nbsp;MHz</span>
+              <span class="badge">Hazard Unit</span>
+            </div>
+            <div class="btns">
+              <!-- ✏️ Replace repo link -->
+              <a class="btn" href="https://github.com/kainct/rv32i-pipeline" target="_blank" rel="noopener">View on GitHub</a>
+              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#waveform-snapshots" target="_blank" rel="noopener">Waveforms</a>
+              <a class="btn ghost" href="https://github.com/kainct/rv32i-pipeline#fpga-basys3" target="_blank" rel="noopener">Bring-Up</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== TEMPLATE: Duplicate this block for more projects =====
+        <article class="card">
+          <img src="IMG_OR_THUMB_URL" alt="PROJECT thumbnail">
+          <div class="body">
+            <div>
+              <h3 style="margin:0 0 4px">PROJECT TITLE</h3>
+              <p class="muted" style="margin:6px 0 0">
+                One-sentence impact/tech summary. Mention key features and result (e.g., timing met @ XXX MHz, resource usage, or demo link).
+              </p>
+            </div>
+            <div class="badges">
+              <span class="badge">Tech 1</span>
+              <span class="badge">Tech 2</span>
+              <span class="badge">Result</span>
+            </div>
+            <div class="btns">
+              <a class="btn" href="https://github.com/YOUR/REPO" target="_blank" rel="noopener">View on GitHub</a>
+              <a class="btn ghost" href="LIVE_DEMO_OR_DOCS_URL" target="_blank" rel="noopener">Docs / Demo</a>
+            </div>
+          </div>
+        </article>
+        ===== END TEMPLATE ===== -->
+
+      </div>
     </section>
 
-    <section class="footer">
-      <p>
-        <a href="resume.pdf">Download résumé</a> ·
-        <a href="mailto:kainct@EXAMPLE.COM">Email</a> ·
-        <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a> ·
-        <a href="https://github.com/kainct">GitHub</a>
-      </p>
+    <!-- (Optional) Footer -->
+    <section style="margin-top:28px;font-size:14px" class="muted">
+      © <span id="y"></span> Kai Nguyen
     </section>
   </main>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
